@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/enviornment'
+require_relative '../lib/environment'
 
 
 COVID::APIManager.get_states
