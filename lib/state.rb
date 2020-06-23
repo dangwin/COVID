@@ -1,17 +1,23 @@
 class State
-    attr_accessor :state, :cases, :todayCases, :deaths, :todayDeaths, :tests
+    attr_accessor :name, :updated, :cases, :todayCases, :deaths, :todayDeaths, :active, :caseperonemillion, :deathsperonemillion, :tests
+ 
 
     @@all = []
 
     def initialize
-        @state = state
-        @cases = 0
-        @todayCases = 0
-        @deaths = 0
-        @todayDeaths= 0
-        @tests = 0
-        @@all << self 
+      @name = name
+      @updated = 0
+      @cases = 0
+      @todayCases = 0
+      @deaths = 0
+      @todayDeaths = 0
+      @active = 0
+      @caseperonemillion = 0
+      @deathsperonemillion = 0
+      @tests = 0
 
+    end 
+      
     end 
 
     def self.all
