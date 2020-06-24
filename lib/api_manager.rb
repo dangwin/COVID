@@ -26,6 +26,6 @@ class COVID::APIManager
 
       end 
 
-      binding.pry
+     # binding.pry
     end 
   end 
