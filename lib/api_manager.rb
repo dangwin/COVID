@@ -14,15 +14,13 @@ class COVID::APIManager
         name = hash["state"]
         updated = hash["updated"]
         cases = hash["cases"]
-        todayCases = hash["todayCases"]
         deaths = hash["deaths"]
-        todayDeaths = hash["todayDeaths"]
         active = hash["active"]
         caseperonemillion = hash["casesPerOneMillion"]
         deathsperonemillion = hash["deathsPerOneMillion"]
         tests = hash["tests"]
 
-      COVID::State.new(name, updated, cases, todayCases, deaths, todayDeaths, active, caseperonemillion, deathsperonemillion, tests)
+      COVID::State.new(name, updated, cases, deaths, active, caseperonemillion, deathsperonemillion, tests)
 
       end 
 

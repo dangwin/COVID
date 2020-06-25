@@ -1,15 +1,13 @@
 class COVID::State
-    attr_accessor :name, :updated, :cases, :todayCases, :deaths, :todayDeaths, :active, :caseperonemillion, :deathsperonemillion, :tests
+    attr_accessor :name, :updated, :cases,  :deaths, :active, :caseperonemillion, :deathsperonemillion, :tests
  
     @@all = []
 
-    def initialize(name, updated, cases, todayCases, deaths, todayDeaths, active, caseperonemillion, deathsperonemillion, tests)
+    def initialize(name, updated, cases, deaths, active, caseperonemillion, deathsperonemillion, tests)
       @name = name
       @updated = updated
       @cases = cases
-      @todayCases = todayCases
       @deaths = deaths
-      @todayDeaths = todayDeaths
       @active = active
       @caseperonemillion = caseperonemillion
       @deathsperonemillion = deathsperonemillion
