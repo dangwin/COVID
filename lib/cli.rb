@@ -16,7 +16,7 @@ class COVID::CLI
 
     def list_states
         puts "Here is a list of the states that our portal has COVID statistics on:"
-        sleep(3)
+        sleep(5)
         states = COVID::State.all
         states.each.with_index(1) {|state, index| puts "#{index}) #{state.name}"}
         sleep(3)
@@ -24,6 +24,7 @@ class COVID::CLI
      end    
 
      def the_data
+        puts ""
         puts "Please enter a number corresponding to the state you wish to get more information about, type 'list' to return the list, or type 'exit' to quit"
         input = nil
         input = gets.strip.downcase
