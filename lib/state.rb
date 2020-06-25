@@ -1,7 +1,6 @@
 class COVID::State
     attr_accessor :name, :updated, :cases, :todayCases, :deaths, :todayDeaths, :active, :caseperonemillion, :deathsperonemillion, :tests
  
-
     @@all = []
 
     def initialize(name, updated, cases, todayCases, deaths, todayDeaths, active, caseperonemillion, deathsperonemillion, tests)
@@ -22,4 +21,8 @@ class COVID::State
     def self.all
         @@all
     end 
+
+    def self.find_by_index(index)
+      @@all[index]
+    end
 end
