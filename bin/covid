@@ -4,6 +4,8 @@ require_relative '../lib/environment'
 
 
 COVID::CLI.new.run
+# COVID::APIManager.get_states
+
 
 
 

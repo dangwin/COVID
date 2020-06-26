@@ -16,7 +16,7 @@ class COVID::CLI
 
     def list_states
         puts "Here is a list of the states that our portal has COVID statistics on:"
-        sleep(5)
+        sleep(3)
         states = COVID::State.all
         states.each.with_index(1) {|state, index| puts "#{index}) #{state.name}"}
         sleep(3)
@@ -57,7 +57,7 @@ class COVID::CLI
     end 
 
      def valid_input(input)
-        if input.to_i.between?(1, COVID::State.all.length)
+        if input.to_i.between?(1, COVID::State.all.length) 
             input
         else
             false

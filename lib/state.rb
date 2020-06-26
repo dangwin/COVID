@@ -15,11 +15,11 @@ class COVID::State
       @@all << self 
 
     end 
-    
+  
     def self.all
         @@all
     end 
-
+    
     def self.find_by_index(index)
       @@all[index]
     end
