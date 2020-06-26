@@ -20,39 +20,54 @@ class COVID::CLI
         states = COVID::State.all
         states.each.with_index(1) {|state, index| puts "#{index}) #{state.name}"}
         sleep(3)
-
+        puts ""
+       
      end    
 
      def the_data
-        puts ""
-        puts "Please enter a number corresponding to the state you wish to get more information about, type 'list' to return the list, or type 'exit' to quit"
+        prompts_user
+        loop do 
         input = nil
         input = gets.strip.downcase
-        if input == "exit"
-            puts "Goodbye and stay safe!"
-           exit
-        end 
-        if input.to_i> 0
-        data = COVID::State.find_by_index(input.to_i - 1)
-        if data == nil
-        puts "Please enter a number between 1 and 62"
-        else
-        puts ""
-        puts "#{data.name}"
-        puts "Cases: #{data.cases}"
-        puts "Deaths: #{data.deaths}"
-        puts "Active: #{data.active}"
-        puts "Cases per one million: #{data.caseperonemillion}"
-        puts "Deaths per one million: #{data.deathsperonemillion}"
-        puts "Tests: #{data.tests}"
-        puts ""
-        end 
-    elsif input == "list"
+        case input 
+        when "exit"
+            break
+        when valid_input(input)
+            data = COVID::State.find_by_index(input.to_i - 1)
+            puts ""
+            puts "#{data.name}"
+            puts "Cases: #{data.cases}"
+            puts "Deaths: #{data.deaths}"
+            puts "Active: #{data.active}"
+            puts "Cases per one million: #{data.caseperonemillion}"
+            puts "Deaths per one million: #{data.deathsperonemillion}"
+            puts "Tests: #{data.tests}"
+            puts "" 
+            prompts_user
+        when "list"
             list_states
+            prompts_user
+            puts "" 
         else
+            puts "" 
             puts "Hmm.. I didn't get that, please try again."
-     end 
+            puts "" 
+        end 
+    end 
     end 
 
+     def valid_input(input)
+        if input.to_i.between?(1, COVID::State.all.length)
+            input
+        else
+            false
+        end 
+    end 
 
-end 
+    def prompts_user
+        puts "Please enter a number corresponding to the state you wish to get more information about, type 'list' to return the list, or type 'exit' to quit"
+    end
+
+
+end
+ 
