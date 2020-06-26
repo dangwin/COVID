@@ -9,7 +9,7 @@ class COVID::CLI
     end 
 
     
-     def welcome
+        def welcome
             puts "Welcome to the COVID-19 Statistics Portal"
             sleep(3)
         end
@@ -33,7 +33,12 @@ class COVID::CLI
         when "exit"
             break
         when valid_input(input)
-            data = COVID::State.find_by_index(input.to_i - 1)
+            if input.to_i == 0 
+                data = COVID::State.all.find{|state| state.name.downcase == input.downcase}
+            else 
+                data = COVID::State.all[input.to_i - 1]
+            
+            end 
             puts ""
             puts "#{data.name}"
             puts "Cases: #{data.cases}"
@@ -59,9 +64,12 @@ class COVID::CLI
      def valid_input(input)
         if input.to_i.between?(1, COVID::State.all.length) 
             input
+        elsif COVID::State.all.collect {|state| state.name.downcase}.include?(input.downcase)
+            input
         else
             false
         end 
+        # binding.pry
     end 
 
     def prompts_user

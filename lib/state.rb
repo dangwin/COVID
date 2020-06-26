@@ -20,7 +20,5 @@ class COVID::State
         @@all
     end 
     
-    def self.find_by_index(index)
-      @@all[index]
-    end
+
 end
